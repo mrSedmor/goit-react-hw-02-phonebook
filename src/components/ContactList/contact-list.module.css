@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.item + .item::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.content {
+  flex-grow: 1;
+  font-size: 18px;
+}
