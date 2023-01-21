@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './contact-list.module.css';
+import sharedCss from 'shared.module.css';
 
 export default function ContactList({ contacts, onDelete }) {
   return (
@@ -9,7 +10,11 @@ export default function ContactList({ contacts, onDelete }) {
           <span className={css.content}>
             {name}: {number}
           </span>
-          <button className="btn" type="button" onClick={() => onDelete(id)}>
+          <button
+            className={sharedCss.btn}
+            type="button"
+            onClick={() => onDelete(id)}
+          >
             Delete
           </button>
         </li>

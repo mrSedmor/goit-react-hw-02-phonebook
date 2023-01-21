@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './contact-form.module.css';
+import sharedCss from 'shared.module.css';
 import getNextId from 'utils/getNextId';
 
 export default class ContactForm extends Component {
@@ -69,7 +70,7 @@ export default class ContactForm extends Component {
           />
         </div>
 
-        <button className="btn" type="submit">
+        <button className={sharedCss.btn} type="submit">
           Add contact
         </button>
       </form>
