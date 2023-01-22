@@ -1,5 +1,10 @@
-.label {
+.fieldWrapper {
   font-size: 18px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.label {
   display: block;
   margin-bottom: 6px;
 }
@@ -8,6 +13,10 @@
   display: block;
   font-size: 16px;
   width: 100%;
-  margin-bottom: 16px;
   padding: 0.3em 0.5em;
+}
+
+.error {
+  color: #b41919;
+  font-size: 0.9em;
 }

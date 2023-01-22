@@ -25,3 +25,9 @@
   flex-grow: 1;
   font-size: 18px;
 }
+
+.content::first-letter {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #1a1a6c;
+}

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import css from './filter.module.css';
 
 export default function Filter({ value, onChange }) {
-  const handleChange = ({ currentTarget: { value } }) => {
+  function handleChange({ currentTarget: { value } }) {
     onChange(value);
-  };
+  }
 
   return (
     <label className={css.field}>
