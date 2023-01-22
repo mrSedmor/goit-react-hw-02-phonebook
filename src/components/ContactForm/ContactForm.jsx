@@ -1,7 +1,5 @@
-import { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
 import PropTypes from 'prop-types';
 import css from './contact-form.module.css';
 import sharedCss from 'shared.module.css';

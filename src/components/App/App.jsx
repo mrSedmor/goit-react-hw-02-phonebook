@@ -48,7 +48,7 @@ export default class App extends Component {
 
   handleDeleteContact = id => {
     this.setState(({ contacts }) => {
-      const updatedContacts = contacts.filter(contact => contact.id != id);
+      const updatedContacts = contacts.filter(contact => contact.id !== id);
       return { contacts: updatedContacts };
     });
   };
