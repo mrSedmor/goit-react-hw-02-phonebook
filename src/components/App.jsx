@@ -5,15 +5,15 @@ import { ContactFrom, Filter, ContactList } from 'components';
 import css from './app.module.css';
 import initialContacts from 'data/contacts.json';
 
-export default class App extends Component {
-  static sortContacts(contacts) {
-    const collator = new Intl.Collator('en', { sensitivity: 'base' }).compare;
-    contacts.sort(({ name: a }, { name: b }) => collator(a, b));
-    return contacts;
-  }
+function sortContacts(contacts) {
+  const collator = new Intl.Collator('en', { sensitivity: 'base' }).compare;
+  contacts.sort(({ name: a }, { name: b }) => collator(a, b));
+  return contacts;
+}
 
+export default class App extends Component {
   state = {
-    contacts: App.sortContacts(initialContacts),
+    contacts: sortContacts(initialContacts),
     filter: '',
   };
 
@@ -40,7 +40,7 @@ export default class App extends Component {
 
       const id = nanoid(8);
 
-      let updatedContacts = App.sortContacts([{ id, ...contact }, ...contacts]);
+      let updatedContacts = sortContacts([{ id, ...contact }, ...contacts]);
 
       return { contacts: updatedContacts };
     });
