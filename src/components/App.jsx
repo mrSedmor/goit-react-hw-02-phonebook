@@ -24,7 +24,7 @@ export default class App extends Component {
   handleAddContact = contact => {
     const { contacts } = this.state;
     const normalizedName = contact.name.toLocaleUpperCase();
-    // Чому це тут, див. коментар нижче
+
     if (
       contacts.find(({ name }) => name.toLocaleUpperCase() === normalizedName)
     ) {
@@ -32,23 +32,10 @@ export default class App extends Component {
       return;
     }
 
-    this.setState(({ contacts }) => {
-      // Новий стан залежить від попереднього.
-      // Повідоблення про наявність дублікатів формально треба вивидити тут,
-      // але тоді чомусь повідомлення виводиться двічі
-      // Перевірку на дублікати залишаю
-      if (
-        contacts.find(({ name }) => name.toLocaleUpperCase() === normalizedName)
-      ) {
-        return {};
-      }
+    const id = nanoid(8);
+    const updatedContacts = sortContacts([{ id, ...contact }, ...contacts]);
 
-      const id = nanoid(8);
-
-      let updatedContacts = sortContacts([{ id, ...contact }, ...contacts]);
-
-      return { contacts: updatedContacts };
-    });
+    this.setState({ contacts: updatedContacts });
   };
 
   handleDeleteContact = id => {
