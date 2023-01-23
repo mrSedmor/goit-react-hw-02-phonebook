@@ -23,8 +23,11 @@ export default class App extends Component {
 
   handleAddContact = contact => {
     const { contacts } = this.state;
+    const normalizedName = contact.name.toLocaleUpperCase();
     // Чому це тут, див. коментар нижче
-    if (contacts.find(({ name }) => name === contact.name)) {
+    if (
+      contacts.find(({ name }) => name.toLocaleUpperCase() === normalizedName)
+    ) {
       Notify.warning(`${contact.name} is already in contacts.`);
       return;
     }
@@ -34,7 +37,9 @@ export default class App extends Component {
       // Повідоблення про наявність дублікатів формально треба вивидити тут,
       // але тоді чомусь повідомлення виводиться двічі
       // Перевірку на дублікати залишаю
-      if (contacts.find(({ name }) => name === contact.name)) {
+      if (
+        contacts.find(({ name }) => name.toLocaleUpperCase() === normalizedName)
+      ) {
         return {};
       }
 
